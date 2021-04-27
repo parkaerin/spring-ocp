@@ -8,11 +8,10 @@ ENV GRADLE_VERSION=5.6
 LABEL io.k8s.description="Platform for building (Gradle) and running plain Java applications" \
       io.k8s.display-name="Java Applications" \
       io.openshift.tags="builder,java,gradle" \
-      io.openshift.expose-services="8080" \
-      org.jboss.deployments-dir="/deployments"
+      io.openshift.expose-services="8080" 
 
 # Install Java
-RUN INSTALL_PKGS="mariadb java-1.8.0-openjdk java-1.8.0-openjdk-devel" && \
+RUN INSTALL_PKGS="mariadb java-11-openjdk java-11-openjdk-devel" && \
     yum install -y $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all -y && \
